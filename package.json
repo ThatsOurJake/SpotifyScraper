@@ -1,0 +1,41 @@
+{
+  "name": "top_songs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch src --exec babel-node src/index.js",
+    "build": "babel src -d dist --copy-files",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.12.0",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "@sky-uk/eslint-config-sky": "^26.0.0",
+    "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-passport": "^4.1.1",
+    "koa-pug": "^3.0.0-2",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.10.1",
+    "koa-static": "^5.0.0",
+    "lodash.get": "^4.4.2",
+    "luxon": "^1.10.0",
+    "nedb": "^1.8.0",
+    "node-cron": "^2.0.3",
+    "passport-spotify": "^1.0.1",
+    "querystring": "^0.2.0"
+  }
+}
