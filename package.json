@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@sky-uk/eslint-config-sky": "^26.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "dotenv": "^6.2.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
