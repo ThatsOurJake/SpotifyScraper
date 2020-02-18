@@ -3,6 +3,7 @@ import passport from 'koa-passport';
 import { config } from 'dotenv';
 
 import isAuthed from './middleware/isAuthed';
+import cfg from './config';
 import userLockDown from './middleware/userLockDown';
 import { getTracksBetweenDates } from './service/data';
 
@@ -23,8 +24,8 @@ router.get(
 router.get(
   '/auth/callback',
   passport.authenticate('spotify', {
-    successRedirect: `${config('domain')}/`,
-    failureRedirect: `${config('domain')}/login`,
+    successRedirect: `${cfg('domain')}/`,
+    failureRedirect: `${cfg('domain')}/login`,
   })
 );
 
