@@ -3,4 +3,17 @@ html
     title Top Songs
     link(rel="stylesheet", href="style.css")
   body
-    p(class="u-text-center c-heading") Top Songs
+    p(class="u-text-center c-heading") Spotify Scraper
+    form(action='/tracks', method='POST')
+      fieldset
+        label(for="start_date")
+          | Start Date
+        br
+        input(type="date", id="start_date", name="start_date", min="2019-01-01")
+      fieldset
+        label(for="end_date")
+          | End Date
+        br
+        input(type="date", id="end_date", name="end_date", min="2019-01-01")
+      fieldset
+        input(type="submit", value="Get Tracks")

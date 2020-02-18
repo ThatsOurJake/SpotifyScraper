@@ -44,3 +44,31 @@ export const writeItemsToDb = items => {
     });
   });
 };
+
+export const getTracksBetweenDates = (startDate, endDate) => {
+  const startMillis = startDate
+    ? DateTime.fromISO(startDate).valueOf()
+    : DateTime.local()
+        .minus({ months: 1 })
+        .valueOf();
+
+  const endMillis = endDate ? DateTime.fromISO(endDate).valueOf() : DateTime.local().valueOf();
+
+  return new Promise((resolve, reject) => {
+    tracksDb.find(
+      {
+        playedAt: {
+          $gte: startMillis,
+          $lte: endMillis,
+        },
+      },
+      (error, docs) => {
+        if (error) {
+          return reject(error);
+        }
+
+        return resolve(docs);
+      }
+    );
+  });
+};
