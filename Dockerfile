@@ -1,4 +1,4 @@
-FROM arm32v7/node:10 as builder
+FROM node:12-alpine as builder
 
 WORKDIR /build
 
@@ -8,7 +8,8 @@ RUN npm install \
     && npm run build
 
 
-FROM arm32v7/node:10 as production
+
+FROM node:12-alpine as production
 
 WORKDIR /prod_modules
 
@@ -17,9 +18,10 @@ COPY package.json ./package.json
 RUN npm install --only=production
 
 
-FROM arm32v7/node:10-slim
 
-WORKDIR /app/TopSongs
+FROM node:12-alpine
+
+WORKDIR /app/SpotifyScraper
 
 COPY --from=builder /build/package.json ./package.json
 COPY --from=builder /build/dist ./dist
