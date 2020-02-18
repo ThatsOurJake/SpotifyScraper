@@ -1,6 +1,5 @@
 import KoaRouter from 'koa-router';
 import passport from 'koa-passport';
-import { config } from 'dotenv';
 
 import isAuthed from './middleware/isAuthed';
 import cfg from './config';
