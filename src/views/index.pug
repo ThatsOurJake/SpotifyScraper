@@ -4,7 +4,7 @@ html
     link(rel="stylesheet", href="style.css")
   body
     p(class="u-text-center c-heading") Spotify Scraper
-    form(action='#{domain}/tracks', method='POST')
+    form(action='//' + locals.domain + '/tracks', method='POST')
       fieldset
         label(for="start_date")
           | Start Date
