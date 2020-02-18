@@ -23,7 +23,7 @@ router.get(
 router.get(
   '/auth/callback',
   passport.authenticate('spotify', {
-    successRedirect: `${config('domain')}`,
+    successRedirect: `${config('domain')}/`,
     failureRedirect: `${config('domain')}/login`,
   })
 );
