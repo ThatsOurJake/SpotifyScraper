@@ -1,5 +1,6 @@
 import KoaRouter from 'koa-router';
 import passport from 'koa-passport';
+import { config } from 'dotenv';
 
 import isAuthed from './middleware/isAuthed';
 import userLockDown from './middleware/userLockDown';
@@ -22,8 +23,8 @@ router.get(
 router.get(
   '/auth/callback',
   passport.authenticate('spotify', {
-    successRedirect: './',
-    failureRedirect: './login',
+    successRedirect: `${config('domain')}`,
+    failureRedirect: `${config('domain')}/login`,
   })
 );
 

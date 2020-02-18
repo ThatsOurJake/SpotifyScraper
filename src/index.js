@@ -26,6 +26,9 @@ new KoaPug({
   viewPath: path.join(__dirname, 'views'),
   debug: true,
   app,
+  locals: {
+    domain: config('domain'),
+  },
 });
 
 app.use(serve(path.join(__dirname, 'assets')));

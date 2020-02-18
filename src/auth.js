@@ -10,7 +10,7 @@ passport.use(
     {
       clientID: config('auth.clientId'),
       clientSecret: config('auth.clientSecret'),
-      callbackURL: config('auth.callbackUrl'),
+      callbackURL: `${config('domain')}/auth/callback`,
     },
     (accessToken, refreshToken, expiry, profile, done) => {
       const expiryTime = DateTime.local()
