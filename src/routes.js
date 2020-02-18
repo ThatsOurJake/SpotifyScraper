@@ -29,7 +29,7 @@ router.get(
 );
 
 router.post('/tracks', isAuthed, userLockDown, async ctx => {
-  const { start_date: startDate, end_date: endDate } = ctx.query;
+  const { start_date: startDate, end_date: endDate } = ctx.request.body;
   ctx.body = await getTracksBetweenDates(startDate, endDate);
   ctx.attachment('tracks.json');
 });
