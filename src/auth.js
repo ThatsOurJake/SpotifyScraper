@@ -22,13 +22,20 @@ passport.use(
         })
         .valueOf();
 
+      const { id, displayName } = profile;
+
+      if (config('spotifyUserId') && id !== config('spotifyUserId')) {
+        console.warn('Login from someone who ID is not in the env, not saving creds');
+        done(null, Object.assign({}, { accessToken, id, displayName }));
+        return;
+      }
+
       writeToSettings({
         expiryTime,
         accessToken,
         refreshToken,
       });
 
-      const { id, displayName } = profile;
       done(null, Object.assign({}, { accessToken, id, displayName }));
     }
   )

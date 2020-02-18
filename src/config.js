@@ -11,6 +11,7 @@ const cfg = {
     clientSecret: process.env.AUTH_CLIENT_SECRET,
     callbackUrl: process.env.AUTH_CALLBACK,
   },
+  spotifyUserId: process.env.USER_ID,
 };
 
 export default path => get(cfg, path);

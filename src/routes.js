@@ -2,11 +2,12 @@ import KoaRouter from 'koa-router';
 import passport from 'koa-passport';
 
 import isAuthed from './middleware/isAuthed';
+import userLockDown from './middleware/userLockDown';
 import { getTracksBetweenDates } from './service/data';
 
 const router = new KoaRouter();
 
-router.get('/', isAuthed, async ctx => {
+router.get('/', isAuthed, userLockDown, async ctx => {
   ctx.render('index');
 });
 
@@ -26,7 +27,7 @@ router.get(
   })
 );
 
-router.post('/tracks', isAuthed, async ctx => {
+router.post('/tracks', isAuthed, userLockDown, async ctx => {
   const { start_date: startDate, end_date: endDate } = ctx.query;
   ctx.body = await getTracksBetweenDates(startDate, endDate);
   ctx.attachment('tracks.json');
