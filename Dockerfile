@@ -1,4 +1,4 @@
-FROM node:12-alpine as builder
+FROM node:26-alpine as builder
 
 WORKDIR /build
 
@@ -9,7 +9,7 @@ RUN npm install \
 
 
 
-FROM node:12-alpine as production
+FROM node:26-alpine as production
 
 WORKDIR /prod_modules
 
@@ -19,7 +19,7 @@ RUN npm install --only=production
 
 
 
-FROM node:12-alpine
+FROM node:26-alpine
 
 WORKDIR /app/SpotifyScraper
 
