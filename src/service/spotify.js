@@ -1,14 +1,17 @@
-import axios from 'axios';
-
-import { writeToSettings, getSettings, writeItemsToDb } from './data';
+import { writeToSettings, getSettings, writeItemsToDb } from './data.js';
 
 const getTracks = async (url, token) => {
-  const { data } = await axios.get(url, {
+  const response = await fetch(url, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 
+  if (!response.ok) {
+    throw new Error(`Spotify API request failed with status ${response.status}`);
+  }
+
+  const data = await response.json();
   const { cursors, items } = data;
 
   if (!cursors || !cursors.after) {

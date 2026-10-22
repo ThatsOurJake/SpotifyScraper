@@ -1,10 +1,10 @@
-import KoaRouter from 'koa-router';
+import KoaRouter from '@koa/router';
 import passport from 'koa-passport';
 
-import isAuthed from './middleware/isAuthed';
-import cfg from './config';
-import userLockDown from './middleware/userLockDown';
-import { getTracksBetweenDates } from './service/data';
+import isAuthed from './middleware/isAuthed.js';
+import cfg from './config.js';
+import userLockDown from './middleware/userLockDown.js';
+import { getTracksBetweenDates } from './service/data.js';
 
 const router = new KoaRouter();
 

@@ -1,8 +1,8 @@
 import { schedule } from 'node-cron';
 
-import { getRecent } from './service/spotify';
-import { getSettings } from './service/data';
-import { hasExpired, refreshCurrentToken } from './service/token';
+import { getRecent } from './service/spotify.js';
+import { getSettings } from './service/data.js';
+import { hasExpired, refreshCurrentToken } from './service/token.js';
 
 const getToken = () => {
   const { accessToken } = getSettings();

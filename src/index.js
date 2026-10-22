@@ -3,14 +3,16 @@ import path from 'path';
 import Koa from 'koa';
 import session from 'koa-session';
 import KoaPug from 'koa-pug';
-import KoaRouter from 'koa-router';
+import KoaRouter from '@koa/router';
 import bodyParser from 'koa-bodyparser';
 import serve from 'koa-static';
 
-import config from './config';
-import auth from './auth';
-import routes from './routes';
-import crons from './cron';
+import config from './config.js';
+import auth from './auth.js';
+import routes from './routes.js';
+import crons from './cron.js';
+
+const __dirname = import.meta.dirname;
 
 const app = new Koa();
 const router = new KoaRouter();
@@ -21,7 +23,6 @@ app.use(session({}, app));
 
 auth(app);
 
-// eslint-disable-next-line no-new
 new KoaPug({
   viewPath: path.join(__dirname, 'views'),
   debug: true,

@@ -2,8 +2,8 @@ import passport from 'koa-passport';
 import { Strategy as SpotifyStrategy } from 'passport-spotify';
 import { DateTime } from 'luxon';
 
-import config from './config';
-import { writeToSettings } from './service/data';
+import config from './config.js';
+import { writeToSettings } from './service/data.js';
 
 passport.use(
   new SpotifyStrategy(

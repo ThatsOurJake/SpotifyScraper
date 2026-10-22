@@ -1,8 +1,10 @@
 import path from 'path';
 import fs from 'fs';
 
-import Datastore from 'nedb';
+import Datastore from '@seald-io/nedb';
 import { DateTime } from 'luxon';
+
+const __dirname = import.meta.dirname;
 
 const tracksDb = new Datastore({
   autoload: true,

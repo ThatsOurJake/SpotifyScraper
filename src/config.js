@@ -1,5 +1,4 @@
 import { config } from 'dotenv';
-import get from 'lodash.get';
 
 config();
 
@@ -14,4 +13,4 @@ const cfg = {
   spotifyUserId: process.env.USER_ID,
 };
 
-export default path => get(cfg, path);
+export default path => path.split('.').reduce((value, key) => (value == null ? undefined : value[key]), cfg);

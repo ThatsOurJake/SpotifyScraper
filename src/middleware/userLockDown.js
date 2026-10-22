@@ -1,7 +1,9 @@
-import config from '../config';
+import config from '../config.js';
 
 export default (ctx, next) => {
-  if (config('spotifyUserId' && ctx.state.user.id !== config('spotifyUserId'))) {
+  const spotifyUserId = config('spotifyUserId');
+
+  if (spotifyUserId && ctx.state.user.id !== spotifyUserId) {
     ctx.status = 403;
     return;
   }

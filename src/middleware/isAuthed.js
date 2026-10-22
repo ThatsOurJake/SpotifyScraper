@@ -1,4 +1,4 @@
-import config from '../config';
+import config from '../config.js';
 
 export default (ctx, next) => {
   if (ctx.isAuthenticated()) {
